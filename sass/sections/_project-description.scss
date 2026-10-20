@@ -1,0 +1,47 @@
+@use '../abstracts' as *;
+
+.s-project-description {
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(6xl);
+    max-width: rem(1024 + 2 * 32);
+
+    @include mq(lg) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: space(9xl);
+    }
+  }
+
+  &__intro {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: space(4xl);
+  }
+
+  &__title {
+    @include text(display-md, medium);
+    color: color(text-primary);
+  }
+
+  &__text {
+    @include text(text-md);
+    max-width: rem(640);
+    color: color(text-secondary);
+  }
+
+  &__aside {
+    width: 100%;
+
+    @include mq(md) {
+      width: rem(384);
+    }
+
+    @include mq(lg) {
+      flex-shrink: 0;
+    }
+  }
+}

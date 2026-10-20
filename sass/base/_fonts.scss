@@ -1,0 +1,19 @@
+$font-path: 'public/fonts' !default;
+
+$playfair-weights: (400, 500, 600);
+
+@each $weight in $playfair-weights {
+  @font-face {
+    font-family: 'Playfair Display';
+    font-weight: $weight;
+    font-display: swap;
+    src: url('#{$font-path}/playfair-display-#{$weight}.woff2') format('woff2');
+  }
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('#{$font-path}/inter-variable.woff2') format('woff2');
+}

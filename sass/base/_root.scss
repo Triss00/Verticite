@@ -1,0 +1,35 @@
+// ===============================================================
+// :root — émet les tokens en variables CSS (une seule fois).
+// Primitives, tokens sémantiques, polices,
+// espacements. Les composants n'utilisent que les tokens sémantiques.
+// ===============================================================
+@use 'sass:map';
+@use '../abstracts' as *;
+
+:root {
+  // Primitives
+  @each $name, $value in $color-base {
+    --color-#{$name}: #{$value};
+  }
+  @each $palette, $steps in $palettes {
+    @each $step, $value in $steps {
+      --color-#{$palette}-#{$step}: #{$value};
+    }
+  }
+
+  // Tokens sémantiques
+  @each $token, $ref in $semantic {
+    --color-#{$token}: #{semantic-value($ref)};
+  }
+
+  // Polices
+  --font-display: #{map.get($font-families, display)};
+  --font-body: #{map.get($font-families, body)};
+
+  // Espacements
+  @each $key, $value in $spacing {
+    --spacing-#{$key}: #{rem($value)};
+  }
+
+  color-scheme: light;
+}

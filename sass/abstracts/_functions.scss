@@ -1,0 +1,100 @@
+// ===============================================================
+// Fonctions — accès aux tokens. Une faute de frappe dans un nom
+// de token bloque la compilation au lieu de passer en silence.
+// ===============================================================
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@use 'tokens' as *;
+@use 'semantic' as *;
+
+/// Convertit des px (nombre sans unité) en rem.
+@function rem($px) {
+  @if math.is-unitless($px) == false {
+    $px: math.div($px, 1px);
+  }
+  @return math.div($px, 16) * 1rem;
+}
+
+/// Couleur sémantique → variable CSS. Seule façon d'appeler une couleur
+/// dans les composants : color(text-primary), color(bg-secondary)…
+@function color($token) {
+  @if not map.has-key($semantic, $token) {
+    @error 'Token de couleur inconnu : `#{$token}`. Voir abstracts/_semantic.scss.';
+  }
+  @return var(--color-#{$token});
+}
+
+/// Liste des noms de primitives existants (white, brand-600…).
+@function primitive-names() {
+  $names: map.keys($color-base);
+  @each $palette, $steps in $palettes {
+    @each $step, $value in $steps {
+      $names: list.append($names, '#{$palette}-#{$step}');
+    }
+  }
+  @return $names;
+}
+
+/// Valeur d'un token sémantique (référence du map $semantic) → CSS.
+/// 'neutral-900' → var(--color-neutral-900) ; '@bg-secondary' →
+/// var(--color-bg-secondary) ; 'rgb(…)' → valeur brute.
+/// Réservé à base/_root.scss.
+@function semantic-value($ref) {
+  @if string.index($ref, 'rgb') == 1 {
+    @return string.unquote($ref);
+  }
+  @if string.index($ref, '@') == 1 {
+    $alias: string.slice($ref, 2);
+    @if not map.has-key($semantic, string.unquote($alias)) {
+      @error 'Alias de token inconnu : `#{$ref}`.';
+    }
+    @return var(--color-#{$alias});
+  }
+  @if not list.index(primitive-names(), $ref) {
+    @error 'Primitive inconnue : `#{$ref}`.';
+  }
+  @return var(--color-#{$ref});
+}
+
+/// Espacement Untitled UI → rem : space(4xl) = 2rem.
+@function space($key) {
+  @if not map.has-key($spacing, $key) {
+    @error 'Espacement inconnu : `#{$key}`.';
+  }
+  @return rem(map.get($spacing, $key));
+}
+
+@function width($key) {
+  @if not map.has-key($width, $key) {
+    @error 'Largeur inconnue : `#{$key}`.';
+  }
+  @return map.get($width, $key);
+}
+
+/// Rayon nommé : radius(md) = 8px.
+@function radius($key) {
+  @if not map.has-key($radius, $key) {
+    @error 'Rayon inconnu : `#{$key}`.';
+  }
+  @return map.get($radius, $key);
+}
+
+/// Épaisseur de bordure nommée.
+@function border-width($key) {
+  @return map.get($border-width, $key);
+}
+
+/// Calque nommé → z-index.
+@function z($key) {
+  @if not map.has-key($z-index, $key) {
+    @error 'z-index inconnu : `#{$key}`.';
+  }
+  @return map.get($z-index, $key);
+}
+
+/// Durée nommée.
+@function duration($key) {
+  @return map.get($durations, $key);
+}

@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.c-fact-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: space(lg);
+  padding: space(5xl) space(4xl);
+  background-color: color(bg-primary_alt);
+
+  &__title {
+    @include text(display-xs, medium);
+    @include caps;
+    color: color(text-primary);
+  }
+
+  &__list {
+    margin: 0;
+    border-block: border-width(sm) solid color(border-primary);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: space(2xl);
+    padding-block: space(lg);
+
+    & + & {
+      border-top: border-width(sm) solid color(border-primary);
+    }
+  }
+
+  &__label {
+    @include text(text-md);
+    color: color(text-tertiary);
+  }
+
+  &__value {
+    @include text(text-md);
+    margin: 0;
+    color: color(text-primary);
+  }
+}

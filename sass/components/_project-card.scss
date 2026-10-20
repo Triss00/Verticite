@@ -1,0 +1,69 @@
+@use '../abstracts' as *;
+
+.c-project-card {
+  display: flex;
+  flex-direction: column;
+  gap: space(2xl);
+  color: color(text-primary);
+  text-decoration: none;
+  @include focus-ring(4px);
+
+  &__media {
+    aspect-ratio: 320 / 336;
+    overflow: hidden;
+    background-color: color(bg-tertiary);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform duration(slow) $easing;
+  }
+
+  @include hover {
+    .c-project-card__image {
+      transform: scale(1.04);
+    }
+  }
+
+  &__body {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: space(lg);
+  }
+
+  &__title {
+    @include text(text-md, medium);
+    color: color(text-primary);
+  }
+
+  &__meta {
+    @include text(text-sm);
+    flex-shrink: 0;
+    color: color(text-primary);
+  }
+
+  &__details {
+    @include text(text-xs);
+    @include caps;
+    flex-basis: 100%;
+    color: color(text-tertiary);
+  }
+
+  &--detailed {
+    .c-project-card__media {
+      aspect-ratio: 336 / 258;
+
+      @include mq(lg) {
+        aspect-ratio: 384 / 415;
+      }
+    }
+
+    .c-project-card__body {
+      flex-wrap: wrap;
+      row-gap: 0;
+    }
+  }
+}

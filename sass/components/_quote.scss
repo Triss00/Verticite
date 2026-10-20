@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.c-quote {
+  display: flex;
+  flex-direction: column;
+  gap: space(md);
+  justify-content: center;
+  margin: 0;
+
+  &__text {
+    @include text(display-xs, medium);
+    margin: 0;
+    color: color(text-primary);
+  }
+
+  &__author {
+    @include text(text-sm);
+    @include caps;
+    color: color(text-secondary);
+  }
+}

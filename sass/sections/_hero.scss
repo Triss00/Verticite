@@ -1,0 +1,69 @@
+@use '../abstracts' as *;
+
+.s-hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: space(5xl);
+  color: color(text-white);
+
+  @include mq(md) {
+    padding-block: space(7xl);
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    // Voile pour garantir la lisibilité du titre blanc
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      background: linear-gradient(90deg, rgb(0 0 0 / 0.45), rgb(0 0 0 / 0.1));
+    }
+  }
+
+  &__content {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: space(5xl);
+
+    @include mq(md) {
+      gap: space(7xl);
+    }
+  }
+
+  &__title {
+    @include text(display-xs, regular);
+    @include caps;
+    max-width: 80%;
+    color: color(text-white);
+
+    @include mq(md) {
+      @include text(display-md);
+      max-width: 50%;
+    }
+
+    @include mq(lg) {
+      @include text(display-xl);
+    }
+  }
+
+  .c-button {
+    padding: space(md) space(2xl);
+
+    @include mq(md) {
+      padding: space(xl) space(5xl);
+    }
+  }
+
+}

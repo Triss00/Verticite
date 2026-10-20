@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+.s-method {
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(6xl);
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: space(lg);
+    text-align: center;
+  }
+
+  &__title {
+    @include text(display-md, medium);
+    color: color(text-primary);
+  }
+
+  &__subtitle {
+    @include text(display-xs, regular);
+    color: color(text-secondary);
+  }
+
+  &__steps {
+    @include reset-list;
+    row-gap: space(5xl);
+    counter-reset: step;
+  }
+
+  &__step {
+    grid-column: span 4;
+
+    @include mq(lg) {
+      grid-column: span 3;
+    }
+  }
+}

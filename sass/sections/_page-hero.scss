@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+.s-page-hero {
+  position: relative;
+  isolation: isolate;
+  padding-top: space(10xl);
+  padding-bottom: space(6xl);
+  color: color(text-white);
+  text-align: center;
+  background-color: color(bg-overlay);
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      background: linear-gradient(90deg, rgb(0 0 0 / 0), rgb(0 0 0 / 0.55) 50%, rgb(0 0 0 / 0));
+    }
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(lg);
+    align-items: center;
+  }
+
+  &__title {
+    @include text(display-md, medium);
+    max-width: rem(640);
+    color: color(text-white);
+  }
+
+  &__details {
+    @include text(text-xs, medium);
+    @include caps;
+  }
+}

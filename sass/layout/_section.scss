@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.l-section {
+  padding-block: rem(map.get($section-padding, base));
+  background-color: color(bg-primary);
+
+  // Fond alterné (crème)
+  &--secondary {
+    background-color: color(bg-secondary);
+  }
+
+  // Sans marge basse (sections qui s'enchaînent)
+  &--flush-bottom {
+    padding-bottom: 0;
+  }
+}

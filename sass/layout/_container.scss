@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.l-container {
+  @include container;
+
+  // Largeurs de lecture plus étroites, centrées
+  &--narrow {
+    max-width: rem(640 + 2 * 32);
+  }
+
+  &--medium {
+    max-width: rem(768 + 2 * 32);
+  }
+}

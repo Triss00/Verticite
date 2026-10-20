@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+
+.c-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space(3xl);
+  text-align: center;
+  max-width: rem(250);
+  margin-inline: auto;
+
+  &__value {
+    @include text(display-xs, semibold);
+    color: color(text-primary);
+  }
+
+  &__label {
+    @include text(text-md);
+    color: color(text-tertiary);
+  }
+}

@@ -1,0 +1,172 @@
+// ===============================================================
+// Mixins — responsive, typographie, accessibilité.
+// ===============================================================
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
+@use 'tokens' as *;
+@use 'functions' as *;
+
+// ---------------------------------------------------------------
+// Responsive (mobile-first)
+// ---------------------------------------------------------------
+
+/// À partir d'un point de rupture : @include mq(lg) { … }
+@mixin mq($bp) {
+  @if not map.has-key($breakpoints, $bp) {
+    @error 'Point de rupture inconnu : `#{$bp}`. Valeurs : #{map.keys($breakpoints)}.';
+  }
+  @media (min-width: map.get($breakpoints, $bp)) {
+    @content;
+  }
+}
+
+/// En dessous d'un point de rupture (cas exceptionnels).
+@mixin mq-down($bp) {
+  @media (max-width: (map.get($breakpoints, $bp) - 0.02px)) {
+    @content;
+  }
+}
+
+/// Survol uniquement sur les appareils qui le permettent.
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------------
+// Typographie
+// ---------------------------------------------------------------
+
+/// Applique un style de l'échelle : @include text(display-lg, medium);
+/// Les styles display-* utilisent Playfair Display, les text-* Inter.
+@mixin text($style, $weight: null) {
+  @if not map.has-key($type-scale, $style) {
+    @error 'Style typographique inconnu : `#{$style}`. Voir $type-scale.';
+  }
+  $values: map.get($type-scale, $style);
+  @if string.index('#{$style}', 'display') == 1 {
+    font-family: var(--font-display);
+  } @else {
+    font-family: var(--font-body);
+  }
+  font-size: rem(list.nth($values, 1));
+  line-height: rem(list.nth($values, 2));
+  @if list.nth($values, 3) == 0 {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: list.nth($values, 3) * 1px;
+  }
+  @if $weight {
+    @if not map.has-key($font-weights, $weight) {
+      @error 'Graisse inconnue : `#{$weight}`.';
+    }
+    font-weight: map.get($font-weights, $weight);
+  }
+}
+
+/// Style responsive : mobile d'abord, puis desktop à partir de md.
+/// @include text-responsive(display-md, display-xl, medium);
+@mixin text-responsive($mobile, $desktop, $weight: null, $bp: md) {
+  @include text($mobile, $weight);
+  @include mq($bp) {
+    @include text($desktop);
+  }
+}
+
+/// Libellé en capitales (nav, boutons, liens d'action).
+/// L'espacement des lettres reste celui du style de texte (0 dans la maquette).
+@mixin caps {
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------------
+// Mise en page
+// ---------------------------------------------------------------
+
+/// Conteneur centré, plafonné à 1280 px, marges 16 → 32 px.
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-inline: auto;
+  padding-inline: rem(map.get($container-padding, base));
+
+  @include mq(md) {
+    padding-inline: rem(map.get($container-padding, md));
+  }
+}
+
+/// Grille 4 → 8 → 12 colonnes.
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(map.get($grid-columns, base), minmax(0, 1fr));
+  column-gap: rem(map.get($grid-gutter, base));
+
+  @include mq(md) {
+    grid-template-columns: repeat(map.get($grid-columns, md), minmax(0, 1fr));
+    column-gap: rem(map.get($grid-gutter, md));
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(map.get($grid-columns, lg), minmax(0, 1fr));
+    column-gap: rem(map.get($grid-gutter, lg));
+  }
+}
+
+// ---------------------------------------------------------------
+// Accessibilité et utilitaires
+// ---------------------------------------------------------------
+
+/// Anneau de focus clavier commun à tous les éléments interactifs.
+@mixin focus-ring($offset: 2px) {
+  &:focus-visible {
+    outline: 2px solid color(border-brand);
+    outline-offset: $offset;
+  }
+}
+
+/// Masque visuellement un élément, le garde lisible par les lecteurs d'écran.
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/// Remet un <button> à zéro pour le styler librement.
+@mixin reset-button {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/// Liste sans puces ni marges.
+@mixin reset-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/// Transition standard du design system.
+@mixin transition($properties...) {
+  transition-property: $properties;
+  transition-duration: duration(base);
+  transition-timing-function: $easing;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition-duration: 0.01ms;
+  }
+}

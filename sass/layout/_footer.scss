@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+.l-footer {  
+  display: flex;
+  flex-direction: column;
+  gap: space(5xl);
+  background-color: color(bg-secondary);
+  padding-top: space(7xl);
+
+  &__columns {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(6xl);
+    padding-bottom: space(xl);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: space(2xl);
+  }
+
+  &__title {
+    @include text(display-xs, medium);
+    @include caps;
+    color: color(text-primary);
+  }
+
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: space(xxs);
+    font-style: normal;
+  }
+
+  &__item,
+  &__link {
+    @include text(text-sm);
+    color: color(text-primary);
+
+    @include mq(md) {
+      @include text(text-md);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__bottom {
+    padding-block: space(3xl);
+    border-top: border-width(sm) solid color(text-secondary);
+
+    @include mq(md) {
+      padding-block: space(3xl);
+    }
+  }
+
+  &__bottom-inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(xl);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__legal,
+  &__legal-link {
+    @include text(text-xs);
+    @include caps;
+    color: color(text-secondary);
+  }
+
+  &__legal-link {
+    text-decoration: none;
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+}

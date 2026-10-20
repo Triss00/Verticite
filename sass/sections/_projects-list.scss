@@ -1,0 +1,20 @@
+@use '../abstracts' as *;
+
+.s-projects-list {
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(7xl);
+    align-items: center;
+  }
+
+  &__grid {
+    @include reset-list;
+    width: 100%;
+  }
+
+  &__item {
+    grid-column: span 4;
+  }
+}

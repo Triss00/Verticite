@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+
+.c-button {
+  @include reset-button;
+  @include text(text-xs, medium);
+  @include caps;
+  display: inline-flex;
+  gap: space(md);
+  align-items: center;
+  justify-content: center;
+  min-height: rem(44); // cible tactile minimale
+  padding: space(md) space(2xl);
+  color: color(text-primary);
+  text-align: center;
+  text-decoration: none;
+  border: border-width(sm) solid color(border-strong);
+  border-radius: radius(none);
+  @include transition(color, background-color, border-color);
+  @include focus-ring(3px);
+
+  @include hover {
+    color: color(text-white);
+    background-color: color(bg-primary-solid);
+    @include text(text-xs, semibold);
+  }
+
+  &:disabled,
+  &[aria-disabled='true'] {
+    color: color(text-placeholder);
+    border-color: color(border-primary);
+    pointer-events: none;
+  }
+
+  // ---- Tailles ----------------------------------------------------
+  &--sm {
+    min-height: rem(36);
+    padding: space(md) space(2xl);
+  }
+
+  // ---- Variantes --------------------------------------------------
+  &--on-image {
+    color: color(text-white);
+    border-color: color(fg-white);
+
+    @include hover {
+      color: color(text-primary);
+      background-color: color(bg-primary);
+      @include text(text-xs, semibold);
+    }
+  }
+
+  &--link {
+    min-height: auto;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    border: 0;
+
+    @include hover {
+      color: color(text-secondary_hover);
+      background: none;
+      text-decoration-thickness: 2px;
+    }
+  }
+}

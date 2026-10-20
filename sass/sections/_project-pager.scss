@@ -1,0 +1,7 @@
+@use '../abstracts' as *;
+
+.s-project-pager {
+  padding-top: space(6xl);
+  padding-bottom: space(4xl);
+  background-color: color(bg-secondary);
+}

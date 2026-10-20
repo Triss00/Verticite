@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+.c-breadcrumb {
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(lg);
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    gap: space(lg);
+    align-items: center;
+    @include text(text-xs, medium);
+    @include caps;
+    color: color(text-primary);
+
+    &:not(:last-child)::after {
+      @include text(text-md, medium);
+      content: '/' / '';
+      color: color(text-tertiary);
+    }
+  }
+
+  &__link {
+    display: inline-flex;
+    gap: space(lg);
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+    text-underline-offset: 0.3em;
+    @include focus-ring(2px);
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    flex-shrink: 0;
+  }
+}

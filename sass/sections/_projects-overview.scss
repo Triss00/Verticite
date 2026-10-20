@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+.s-projects-overview {
+  overflow: hidden;
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(6xl);
+
+    @include mq(lg) {
+      flex-direction: row;
+      align-items: center;
+      gap: space(9xl);
+    }
+  }
+
+  &__intro {
+    @include mq(md) {
+      max-width: rem(560);
+    }
+  }
+
+  &__slider {
+    flex: 1;
+    min-width: 0;
+  }
+}

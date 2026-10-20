@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.c-filters {
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: space(lg) space(md);
+  }
+
+  &__item {
+    display: flex;
+    gap: space(md);
+    align-items: center;
+
+    &:not(:last-child)::after {
+      @include text(text-xs, medium);
+      content: '/' / '';
+      color: color(text-primary);
+    }
+  }
+
+  &__link {
+    @include text(text-xs, medium);
+    @include caps;
+    color: color(text-primary);
+    text-decoration: none;
+    text-underline-offset: 0.3em;
+    @include focus-ring(2px);
+
+    &[aria-current='page'] {
+      text-decoration: underline;
+    }
+
+    @include hover {
+      text-decoration: underline;
+    }
+  }
+}

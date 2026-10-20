@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+.s-page-intro {
+  padding-block: space(6xl);
+  text-align: center;
+
+  @include mq(md) {
+    padding-bottom: space(7xl);
+  }
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    gap: space(4xl);
+    align-items: center;
+
+    @include mq(md) {
+      gap: space(5xl);
+    }
+  }
+
+  &__title {
+    @include text-responsive(display-sm, display-md, medium);
+    color: color(text-primary);
+  }
+
+  &__subtitle {
+    @include text(text-xl, regular);
+    color: color(text-tertiary);
+
+    @include mq(md) {
+      @include text(display-xs);
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.c-nav {
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: space(lg);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: center;
+      gap: space(9xl);
+    }
+  }
+
+  &__link {
+    @include text(text-sm);
+    @include caps;
+    position: relative;
+    display: inline-block;
+    padding-block: space(xxs);
+    color: color(text-primary);
+    text-decoration: none;
+    @include focus-ring(4px);
+
+    @include mq(md) {
+      @include text(text-xs);
+      padding-block: 0 space(md);
+    }
+
+    // Trait sous le lien actif ou survolé
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: border-width(sm);
+      content: '';
+      background-color: color(border-strong);
+      transform: scaleX(0);
+      transform-origin: left;
+      @include transition(transform);
+    }
+
+    @include hover {
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &[aria-current='page']::after {
+      transform: scaleX(1);
+    }
+  }
+}

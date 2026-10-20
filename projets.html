@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verticité - Projets</title>
+        <meta name="description" content="Verticité transforme garages, usines et entrepôts en lieux de vie lumineux, bioclimatiques et végétalisés.">
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+        <link rel="stylesheet" href="main.css">
+        <script type="module" src="/js/main.js"></script>
+    </head>
+    <body>
+        <a class="u-skip-link" href="#contenu">Aller au contenu</a>
+
+        <header class="l-header">
+            <div class="l-header__inner">
+                <a href="/">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/public/logo/logo-desktop.svg" width="177" height="50">
+                        <img src="/public/logo/logo-mobile.svg" width="123" height="38" alt="Verticité Architecture, accueil">
+                    </picture>
+                </a>
+
+                <button class="c-menu-button l-header__menu-button" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Ouvrir le menu" data-menu-button>
+                    <svg class="c-menu-button__icon c-menu-button__icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                    <svg class="c-menu-button__icon c-menu-button__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+
+                <nav class="c-nav l-header__nav" id="navigation" aria-label="Navigation principale">
+                    <ul class="c-nav__list">
+                    <li><a class="c-nav__link" href="/">Accueil</a></li>
+                    <li><a class="c-nav__link" href="/projets.html" aria-current="page">Projets</a></li>
+                    <li><a class="c-nav__link" href="/agence.html">Agence</a></li>
+                    <li><a class="c-nav__link" href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="contenu">
+            <!-- ============ En-tête de page ============ -->
+            <section class="s-page-intro" aria-labelledby="page-title">
+                <div class="s-page-intro__inner">
+                    <hgroup>
+                        <h1 class="s-page-intro__title" id="page-title">Nos réalisations</h1>
+                        <p class="s-page-intro__subtitle">Nos projets de réhabilitation urbaine</p>
+                    </hgroup>
+                    <nav class="c-filters" aria-label="Filtrer les projets par type">
+                        <ul class="c-filters__list">
+                            <li class="c-filters__item"><a class="c-filters__link" href="/projet.html" aria-current="page">Tous</a></li>
+                            <li class="c-filters__item"><a class="c-filters__link" href="/projet.html?type=logements">Logements</a></li>
+                            <li class="c-filters__item"><a class="c-filters__link" href="/projet.html?type=bureaux">Bureaux</a></li>
+                            <li class="c-filters__item"><a class="c-filters__link" href="/projet.html?type=industriel">Industriel</a></li>
+                            <li class="c-filters__item"><a class="c-filters__link" href="/projet.html?type=ancien">Ancien</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- ============ Liste des projets ============ -->
+            <section class="l-section l-section--secondary s-projects-list" aria-label="Liste des projets">
+                <div class="s-projects-list__inner">
+                    <ul class="l-grid s-projects-list__grid" role="list">
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/serre.jpg" alt="Allée plantée sous la verrière du Garage Suspendu" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">Le Garage Suspendu</h2>
+                                <span class="c-project-card__meta">400 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/patio.jpg" alt="Cour intérieure plantée de la Cour des Tanneurs" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">La Cour des Tanneurs</h2>
+                                <span class="c-project-card__meta">1200 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/hero.jpg" alt="Façade de briques de la Halle aux Grains" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">Halle aux Grains</h2>
+                                <span class="c-project-card__meta">2300 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/loft.jpg" alt="Séjour lumineux du Garage Moncey" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">Garage Moncey</h2>
+                                <span class="c-project-card__meta">260 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/loft.jpg" alt="Séjour de l'Atelier de Tissage" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">L'Atelier de Tissage</h2>
+                                <span class="c-project-card__meta">100 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/serre.jpg" alt="Verrière de l'Entrepôt Sainte-Blandine" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">Entrepôt Sainte-Blandine</h2>
+                                <span class="c-project-card__meta">850 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                        <li class="s-projects-list__item">
+                        <a class="c-project-card c-project-card--detailed" href="/detailed_project.html">
+                            <div class="c-project-card__media"><img class="c-project-card__image" src="/public/images/patio.jpg" alt="Patio planté du Loft du Canal" width="384" height="415" loading="lazy"></div>
+                            <div class="c-project-card__body">
+                                <h2 class="c-project-card__title">Loft du Canal</h2>
+                                <span class="c-project-card__meta">180 m²</span>
+                                <p class="c-project-card__details">Lyon 7e · 2023 · Logement</p>
+                            </div>
+                        </a>
+                        </li>
+                    </ul>
+                    <a class="c-button" href="/projet.html?page=2">Charger plus de projets</a>
+                </div>
+            </section>
+
+            <!-- ============ Appel à l'action ============ -->
+            <section class="l-section" aria-labelledby="cta-title">
+                <div class="l-container l-container--medium">
+                    <div class="c-section-header c-section-header--center c-section-header--large-mobile">
+                    <h2 class="c-section-header__title" id="cta-title">Vous possédez un lieu chargé d'histoire&#8239;?</h2>
+                    <p class="c-section-header__text">Vous souhaitez transformer un entrepôt, une boutique ou un atelier en espace de vie ou de travail&#8239;? Nous vous accompagnons de la faisabilité urbanistique à la livraison intérieure.</p>
+                    <a class="c-button" href="/contact.html">Soumettre votre projet de réhabilitation</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="l-footer">
+            <div class="l-footer__columns">
+                <div class="l-footer__column">
+                    <h2 class="l-footer__title">Contact</h2>
+                    <address class="l-footer__list">
+                        <span class="l-footer__item">18 rue des Vinaigriers,<br>75010 Paris</span>
+                        <a class="l-footer__link" href="tel:+33223374300">02 23 37 43 00</a>
+                        <a class="l-footer__link" href="mailto:contact@verticite.fr">contact@verticite.fr</a>
+                    </address>
+                </div>
+                <nav class="l-footer__column" aria-label="Liens utiles">
+                    <h2 class="l-footer__title">Liens utiles</h2>
+                    <ul class="l-footer__list">
+                        <li><a class="l-footer__link" href="/">Accueil</a></li>
+                        <li><a class="l-footer__link" href="/projets.html">Nos réalisations</a></li>
+                        <li><a class="l-footer__link" href="/agence.html">L'agence</a></li>
+                        <li><a class="l-footer__link" href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="l-footer__column">
+                    <h2 class="l-footer__title">Réseaux sociaux</h2>
+                    <ul class="l-footer__list">
+                        <li><a class="l-footer__link" href="#">Pinterest</a></li>
+                        <li><a class="l-footer__link" href="#">Facebook</a></li>
+                        <li><a class="l-footer__link" href="#">Instagram</a></li>
+                        <li><a class="l-footer__link" href="#">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="l-footer__bottom">
+                <div class="l-footer__bottom-inner">
+                    <p class="l-footer__legal">© 2026 verticite.fr. Tous droits réservés.</p>
+                    <p class="l-footer__legal">
+                        <a class="l-footer__legal-link" href="#">Politique de confidentialité</a> |
+                        <a class="l-footer__legal-link" href="#">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

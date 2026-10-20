@@ -1,0 +1,40 @@
+@use '../abstracts' as *;
+
+.c-member {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  gap: space(2xl);
+  width: 100%;
+  max-width: rem(320);
+
+  &__photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background-color: color(bg-tertiary);
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: space(lg);
+  }
+
+  &__name {
+    @include text(text-xl, medium);
+    color: color(text-primary);
+  }
+
+  &__role {
+    @include text(text-sm);
+    @include caps;
+    color: color(text-primary);
+  }
+
+  &__bio {
+    @include text(text-sm);
+    color: color(text-tertiary);
+  }
+}

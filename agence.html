@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verticité - Agence</title>
+        <meta name="description" content="Verticité transforme garages, usines et entrepôts en lieux de vie lumineux, bioclimatiques et végétalisés.">
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+        <link rel="stylesheet" href="main.css">
+        <script type="module" src="/js/main.js"></script>
+    </head>
+    <body>
+        <a class="u-skip-link" href="#contenu">Aller au contenu</a>
+
+        <header class="l-header">
+            <div class="l-header__inner">
+                <a href="/">
+                    <picture>
+                        <source media="(min-width: 768px)" srcset="/public/logo/logo-desktop.svg" width="177" height="50">
+                        <img src="/public/logo/logo-mobile.svg" width="123" height="38" alt="Verticité Architecture, accueil">
+                    </picture>
+                </a>
+
+                <button class="c-menu-button l-header__menu-button" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Ouvrir le menu" data-menu-button>
+                    <svg class="c-menu-button__icon c-menu-button__icon--open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                    <svg class="c-menu-button__icon c-menu-button__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                </button>
+
+                <nav class="c-nav l-header__nav" id="navigation" aria-label="Navigation principale">
+                    <ul class="c-nav__list">
+                    <li><a class="c-nav__link" href="/">Accueil</a></li>
+                    <li><a class="c-nav__link" href="/projets.html">Projets</a></li>
+                    <li><a class="c-nav__link" href="/agence.html" aria-current="page">Agence</a></li>
+                    <li><a class="c-nav__link" href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="contenu">
+            <!-- ============ En-tête de page ============ -->
+            <section class="s-page-intro" aria-labelledby="page-title">
+                <div class="s-page-intro__inner">
+                    <hgroup>
+                        <h1 class="s-page-intro__title" id="page-title">L’Agence</h1>
+                        <p class="s-page-intro__subtitle">& nos fondateurs</p>
+                    </hgroup>
+                </div>
+            </section>
+
+            <!-- ============ Fondateurs ============ -->
+            <section class="l-section l-section--secondary s-founders" aria-labelledby="fondateurs-title">
+                <h2 class="u-visually-hidden" id="fondateurs-title">Nos fondateurs</h2>
+                <ul class="s-founders__list" role="list">
+                    <li class="s-founders__item">
+                        <article class="c-member">
+                        <img class="c-member__photo" src="/public/images/portrait.svg" alt="" width="320" height="320" loading="lazy">
+                            <div class="c-member__body">
+                                <div>
+                                <h3 class="c-member__name">Marc-Antoine Besse</h3>
+                                <p class="c-member__role">Urbaniste · Co-fondateur</p>
+                                </div>
+                                <p class="c-member__bio">Diplômé de l’Institut d’urbanisme de Lyon, Marc-Antoine a passé dix ans dans une agence d’urbanisme de la métropole, à piloter des études de reconversion de friches industrielles. Chez Verticité, il mène les études de faisabilité&#8239;: lecture du PLU, changement de destination, dialogue avec les services de la ville et les architectes des Bâtiments de France.</p>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="s-founders__item">
+                        <article class="c-member">
+                            <img class="c-member__photo" src="/public/images/portrait.svg" alt="" width="320" height="320" loading="lazy">
+                            <div class="c-member__body">
+                                <div>
+                                <h3 class="c-member__name">Léa Chéron</h3>
+                                <p class="c-member__role">Architecte d’intérieur · Co-fondatrice</p>
+                                </div>
+                                <p class="c-member__bio">Formée à l’École Boulle, Léa a travaillé plusieurs années sur la transformation d’ateliers et de lofts avant de cofonder Verticité. Elle conçoit les volumes intérieurs, la lumière et le végétal, et suit le réemploi des matériaux d’origine, de l’inventaire sur site jusqu’à la livraison clés en main.</p>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ============ Notre méthode ============ -->
+            <section class="l-section s-method" aria-labelledby="methode-title">
+                <div class="s-method__inner">
+                    <hgroup class="s-method__header">
+                        <h2 class="s-method__title" id="methode-title">Notre méthode</h2>
+                        <p class="s-method__subtitle">De la première visite à la remise des clés, un seul interlocuteur suit votre projet.</p>
+                    </hgroup>
+                    <ol class="l-grid s-method__steps">
+                        <li class="s-method__step c-step">
+                            <h3 class="c-step__title">Diagnostic</h3>
+                            <p class="c-step__text">Visite du lieu, relevés, état de la structure et inventaire des matériaux réemployables.</p>
+                        </li>
+                        <li class="s-method__step c-step">
+                            <h3 class="c-step__title">Faisabilité</h3>
+                            <p class="c-step__text">Analyse du PLU, changement de destination, budget et premières esquisses du volume.</p>
+                        </li>
+                        <li class="s-method__step c-step">
+                            <h3 class="c-step__title">Conception</h3>
+                            <p class="c-step__text">Plans, permis de construire, choix de la lumière, du végétal et des matériaux.</p>
+                        </li>
+                        <li class="s-method__step c-step">
+                            <h3 class="c-step__title">Chantier & livraison</h3>
+                            <p class="c-step__text">Suivi des artisans, contrôle du réemploi et livraison intérieure clés en main.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- ============ Image · citation · image ============ -->
+            <section class="l-section l-section--secondary s-mosaic" aria-label="L'agence en images">
+                <div class="l-container">
+                    <div class="s-mosaic__grid">
+                        <img class="s-mosaic__image" src="/public/images/serre.jpg" alt="Verrière plantée d'un projet de l'agence" width="384" height="420" loading="lazy">
+                        <figure class="s-mosaic__quote c-quote">
+                            <blockquote class="c-quote__text">
+                                <p>« La lumière est le premier matériau que nous faisons entrer dans un bâtiment. »</p>
+                            </blockquote>
+                            <figcaption class="c-quote__author">Léa Chéron</figcaption>
+                        </figure>
+                        <img class="s-mosaic__image" src="/public/images/loft.jpg" alt="Séjour lumineux d'un loft réhabilité" width="384" height="420" loading="lazy">
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Appel à l'action ============ -->
+            <section class="l-section" aria-labelledby="cta-title">
+                <div class="l-container l-container--medium">
+                    <div class="c-section-header c-section-header--center c-section-header--large-mobile">
+                        <h2 class="c-section-header__title" id="cta-title">Vous possédez un lieu chargé d'histoire&#8239;?</h2>
+                        <p class="c-section-header__text">Vous souhaitez transformer un entrepôt, une boutique ou un atelier en espace de vie ou de travail&#8239;? Nous vous accompagnons de la faisabilité urbanistique à la livraison intérieure.</p>
+                        <a class="c-button" href="/contact.html">Soumettre votre projet de réhabilitation</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="l-footer">
+            <div class="l-footer__columns">
+                <div class="l-footer__column">
+                    <h2 class="l-footer__title">Contact</h2>
+                    <address class="l-footer__list">
+                        <span class="l-footer__item">18 rue des Vinaigriers,<br>75010 Paris</span>
+                        <a class="l-footer__link" href="tel:+33223374300">02 23 37 43 00</a>
+                        <a class="l-footer__link" href="mailto:contact@verticite.fr">contact@verticite.fr</a>
+                    </address>
+                </div>
+                <nav class="l-footer__column" aria-label="Liens utiles">
+                    <h2 class="l-footer__title">Liens utiles</h2>
+                    <ul class="l-footer__list">
+                        <li><a class="l-footer__link" href="/">Accueil</a></li>
+                        <li><a class="l-footer__link" href="/projets.html">Nos réalisations</a></li>
+                        <li><a class="l-footer__link" href="/agence.html">L'agence</a></li>
+                        <li><a class="l-footer__link" href="/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="l-footer__column">
+                    <h2 class="l-footer__title">Réseaux sociaux</h2>
+                    <ul class="l-footer__list">
+                        <li><a class="l-footer__link" href="#">Pinterest</a></li>
+                        <li><a class="l-footer__link" href="#">Facebook</a></li>
+                        <li><a class="l-footer__link" href="#">Instagram</a></li>
+                        <li><a class="l-footer__link" href="#">Youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="l-footer__bottom">
+                <div class="l-footer__bottom-inner">
+                    <p class="l-footer__legal">© 2026 verticite.fr. Tous droits réservés.</p>
+                    <p class="l-footer__legal">
+                        <a class="l-footer__legal-link" href="#">Politique de confidentialité</a> |
+                        <a class="l-footer__legal-link" href="#">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+@use '../abstracts' as *;
+
+.s-breadcrumb {
+  padding-block: space(3xl);
+  background-color: color(bg-secondary);
+}

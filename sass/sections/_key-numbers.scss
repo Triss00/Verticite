@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+.s-key-numbers {
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: space(8xl) space(6xl);
+    justify-content: center;
+    margin-inline: auto;
+
+    @include mq(md) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: width(md);
+
+      @include mq(xl) {
+        max-width: width(5xl);
+      }
+    }
+  }
+}

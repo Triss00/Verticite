@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.u-visually-hidden {
+  @include visually-hidden;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
+
+// Lien d'évitement « Aller au contenu »
+.u-skip-link {
+  @include text(text-sm, medium);
+  position: absolute;
+  top: space(md);
+  left: space(md);
+  z-index: z(modal);
+  padding: space(md) space(xl);
+  color: color(text-primary);
+  background-color: color(bg-primary);
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: none;
+  }
+}

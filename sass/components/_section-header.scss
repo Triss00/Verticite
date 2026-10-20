@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+.c-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: space(3xl);
+
+  &__title {
+    @include text-responsive(display-sm, display-md, medium);
+    color: color(text-primary);
+  }
+
+  &__text {
+    @include text(text-sm);
+    color: color(text-secondary);
+
+    @include mq(md) {
+      @include text(text-md);
+    }
+  }
+
+  &--center {
+    align-items: center;
+    text-align: center;
+  }
+}

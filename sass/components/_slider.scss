@@ -1,0 +1,81 @@
+@use '../abstracts' as *;
+
+.c-slider {
+  --slide-width: #{width(xxs)};
+  display: flex;
+  flex-direction: column;
+  gap: space(md);
+
+  &__track {
+    @include reset-list;
+    display: flex;
+    gap: space(4xl);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slide {
+    flex: 0 0 min(var(--slide-width), 85%);
+    scroll-snap-align: start;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: space(md);
+    padding-right: space(md);
+  }
+
+  &__progress {
+    position: relative;
+    flex: 1;
+    height: border-width(sm);
+    background-color: color(fg-quaternary);
+  }
+
+  &__progress-bar {
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    width: var(--progress-size, 30%);
+    background-color: color(border-strong);
+    transform: translateX(var(--progress-offset, 0%));
+    @include transition(transform);
+  }
+
+  &__arrows {
+    display: flex;
+  }
+
+  &__arrow {
+    @include reset-button;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(24);
+    height: rem(24);
+    color: color(fg-secondary);
+    @include transition(color, opacity);
+    @include focus-ring;
+
+    @include hover {
+      color: color(fg-secondary_hover);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    svg {
+      width: rem(20);
+      height: rem(20);
+    }
+  }
+}

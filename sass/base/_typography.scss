@@ -1,0 +1,61 @@
+// ===============================================================
+// Typographie de base — valeurs par défaut des éléments HTML.
+// Les composants affinent avec @include text(…).
+// ===============================================================
+@use '../abstracts' as *;
+
+body {
+  @include text(text-md, regular);
+  color: color(text-tertiary);
+  background-color: color(bg-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: color(text-primary);
+  text-wrap: balance;
+}
+
+// Correspondance par défaut des niveaux de titre (mobile → desktop).
+h1 {
+  @include text-responsive(display-md, display-xl);
+}
+
+h2 {
+  @include text-responsive(display-sm, display-lg);
+}
+
+h3 {
+  @include text-responsive(display-xs, display-md);
+}
+
+h4 {
+  @include text(display-xs);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+strong,
+b {
+  font-weight: 600;
+  color: color(text-primary);
+}
+
+a {
+  text-underline-offset: 0.25em;
+  @include transition(color, text-decoration-color);
+  @include focus-ring;
+}
+
+::selection {
+  color: color(text-primary_on-brand);
+  background-color: color(bg-brand-solid);
+}

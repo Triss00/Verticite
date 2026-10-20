@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+.c-menu-button {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(40);
+  height: rem(40);
+  color: color(fg-primary);
+  border-radius: radius(md);
+  @include transition(background-color);
+  @include focus-ring;
+
+  @include hover {
+    background-color: color(bg-secondary_hover);
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+  }
+
+  &__icon--close {
+    display: none;
+  }
+
+  &[aria-expanded='true'] {
+    .c-menu-button__icon--open {
+      display: none;
+    }
+
+    .c-menu-button__icon--close {
+      display: block;
+    }
+  }
+}

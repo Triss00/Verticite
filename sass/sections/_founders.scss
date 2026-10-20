@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.s-founders {
+  &__list {
+    @include reset-list;
+    display: flex;
+    flex-direction: column;
+    gap: space(7xl);
+
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: center;
+      gap: space(4xl);
+    }
+  }
+
+  &__item {
+    @include mq(md) {
+      flex: 0 1 rem(320);
+    }
+  }
+}

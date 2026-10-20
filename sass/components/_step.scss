@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+.c-step {
+  display: flex;
+  flex-direction: column;
+  gap: space(2xl);
+  padding-top: space(3xl);
+  border-top: border-width(sm) solid color(border-brand);
+  counter-increment: step;
+
+  &::before {
+    @include text(display-xs, semibold);
+    content: counter(step, decimal-leading-zero) / '';
+    color: color(text-secondary);
+  }
+
+  &__title {
+    @include text(text-lg);
+    @include caps;
+    color: color(text-primary);
+  }
+
+  &__text {
+    @include text(text-md);
+    color: color(text-secondary);
+  }
+}

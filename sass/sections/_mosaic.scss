@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.s-mosaic {
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: space(6xl);
+
+    @include mq(md) {
+      max-width: rem(373);
+      margin-inline: auto;
+    }
+
+    @include mq(lg) {
+      @include grid;
+      align-items: center;
+      max-width: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 343 / 400;
+    object-fit: cover;
+    background-color: color(bg-tertiary);
+
+    @include mq(md) {
+      aspect-ratio: 373 / 400;
+    }
+
+    @include mq(lg) {
+      grid-column: span 4;
+      aspect-ratio: 373 / 409;
+    }
+  }
+
+  &__quote {
+    @include mq(lg) {
+      grid-column: span 4;
+    }
+  }
+}

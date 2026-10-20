@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+.c-project-nav {
+  display: flex;
+  flex-direction: column;
+  gap: space(4xl);
+  align-items: center;
+  padding-block: space(2xl);
+  border-block: border-width(sm) solid color(border-primary);
+
+  @include mq(md) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: space(md);
+    align-items: center;
+    color: color(text-primary);
+    text-align: center;
+    text-decoration: none;
+    @include focus-ring(4px);
+
+    @include mq(md) {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &--next {
+      @include mq(md) {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    @include hover {
+      .c-project-nav__name {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-flex;
+    gap: space(md);
+    align-items: center;
+    @include text(text-sm, medium);
+    @include caps;
+  }
+
+  &__icon {
+    width: rem(24);
+    height: rem(24);
+    flex-shrink: 0;
+  }
+
+  &__name {
+    @include text(display-xs, medium);
+  }
+}
