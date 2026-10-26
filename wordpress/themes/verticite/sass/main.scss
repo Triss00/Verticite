@@ -1,0 +1,11 @@
+// ===============================================================
+// Point d'entrée Sass du thème.
+// Les sources sont celles de l'intégration (integration/sass), trouvées
+// grâce à l'option --load-path du script npm « build:theme ».
+// Seul le chemin des polices change : il est relatif à assets/css/main.css.
+// ===============================================================
+@use 'base' with ($font-path: '../fonts');
+@use 'layout';
+@use 'components';
+@use 'utilities';
+@use 'sections';
