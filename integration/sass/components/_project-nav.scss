@@ -31,6 +31,7 @@
     &--next {
       @include mq(md) {
         align-items: flex-end;
+        margin-left: auto; // reste à droite, même sans projet précédent
         text-align: right;
       }
     }

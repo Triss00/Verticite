@@ -116,6 +116,42 @@
   }
 }
 
+/// Liste en colonnes dont la dernière ligne incomplète est centrée.
+/// Mêmes largeurs que la grille (ex. 3 colonnes = span 4 sur 12),
+/// mais en flexbox : avec 2 projets sur 3 colonnes, ils restent centrés.
+/// @include centered-columns($md: 2, $lg: 3);
+@mixin centered-columns($md: 2, $lg: 3) {
+  $gutter-base: rem(map.get($grid-gutter, base));
+  $gutter-md: rem(map.get($grid-gutter, md));
+  $gutter-lg: rem(map.get($grid-gutter, lg));
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: $gutter-base;
+
+  > * {
+    flex: 0 0 100%;
+    min-width: 0; // un élément flex ne rétrécit pas sous son contenu sinon
+  }
+
+  @include mq(md) {
+    column-gap: $gutter-md;
+
+    > * {
+      flex-basis: calc((100% - #{$md - 1} * #{$gutter-md}) / #{$md});
+    }
+  }
+
+  @include mq(lg) {
+    column-gap: $gutter-lg;
+
+    > * {
+      flex-basis: calc((100% - #{$lg - 1} * #{$gutter-lg}) / #{$lg});
+    }
+  }
+}
+
 // ---------------------------------------------------------------
 // Accessibilité et utilitaires
 // ---------------------------------------------------------------

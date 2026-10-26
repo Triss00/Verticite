@@ -9,12 +9,11 @@
     align-items: center;
   }
 
+  // 1 → 2 → 3 colonnes ; une dernière ligne incomplète reste centrée
   &__grid {
     @include reset-list;
+    @include centered-columns($md: 2, $lg: 3);
+    row-gap: space(4xl);
     width: 100%;
-  }
-
-  &__item {
-    grid-column: span 4;
   }
 }

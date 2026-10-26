@@ -32,6 +32,12 @@
     padding-right: space(md);
   }
 
+  // Si tous les projets tiennent à l'écran, alors les flèches et barre sont inutiles
+  // (classe ajoutée par slider.js)
+  &.is-static &__controls {
+    display: none;
+  }
+
   &__progress {
     position: relative;
     flex: 1;

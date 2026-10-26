@@ -1,0 +1,47 @@
+// ===============================================================
+// .c-prose — contenu rédigé dans l'éditeur de WordPress
+// (texte d'un projet, pages Contact et mentions légales).
+// On ne maîtrise pas les balises produites donc on les style par type.
+// ===============================================================
+@use '../abstracts' as *;
+
+.c-prose {
+  // Espacement vertical régulier entre les blocs
+  > * + * {
+    margin-top: space(3xl);
+  }
+
+  > * + :is(h2, h3, h4) {
+    margin-top: space(6xl);
+  }
+
+  h2 {
+    @include text-responsive(display-xs, display-sm, medium);
+  }
+
+  h3 {
+    @include text(text-xl, medium);
+    font-family: var(--font-display);
+  }
+
+  :is(ul, ol) {
+    padding-left: space(3xl);
+
+    li + li {
+      margin-top: space(md);
+    }
+  }
+
+  a:not([class]) {
+    color: color(text-primary);
+    text-decoration: underline;
+
+    @include hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}

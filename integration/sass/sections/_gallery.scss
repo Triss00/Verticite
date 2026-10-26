@@ -13,12 +13,11 @@
     color: color(text-primary);
   }
 
+  // 1 → 2 → 3 colonnes, quel que soit le nombre d'images
   &__grid {
     @include reset-list;
-  }
-
-  &__item {
-    grid-column: span 4;
+    @include centered-columns($md: 2, $lg: 3);
+    row-gap: space(4xl);
   }
 
   &__image {

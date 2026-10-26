@@ -25,9 +25,16 @@ html {
 
 body {
   min-height: 100vh;
+  min-height: 100dvh; // hauteur réellement visible sur mobile (barres du navigateur)
+  display: flex;
+  flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+main {
+  flex-grow: 1; // le contenu principal occupe toute la hauteur disponible
 }
 
 img,

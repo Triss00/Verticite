@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+// ===============================================================
+// .c-demo-badge — signale que l'agence et les projets sont fictifs.
+// ===============================================================
+
+.c-demo-badge {
+  @include text(text-xs, medium);
+  @include caps;
+  padding: space(xs) space(xl);
+  color: color(text-primary_on-brand);
+  background-color: color(bg-brand-section);
+
+  @include mq(md) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: z(overlay); // au-dessus de l'en-tête
+    padding: space(xs) space(lg);
+    border-bottom-right-radius: radius(md);
+  }
+}
+
+.admin-bar .c-demo-badge {
+  @include mq(md) {
+    top: 46px;
+  }
+
+  @media (min-width: 783px) {
+    top: 32px;
+  }
+}

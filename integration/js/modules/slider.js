@@ -30,6 +30,9 @@ function setupSlider(root) {
       // Le décalage est exprimé en % de la largeur de la barre elle-même
       progress.style.setProperty('--progress-offset', `${((1 - visible) / visible) * ratio * 100}%`);
     }
+    // Peu de projets : rien à faire défiler, on masque les commandes
+    root.classList.toggle('is-static', max <= 1);
+
     if (prev) prev.disabled = track.scrollLeft <= 1;
     if (next) next.disabled = track.scrollLeft >= max - 1;
   };

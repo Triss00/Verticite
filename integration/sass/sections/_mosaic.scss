@@ -11,10 +11,20 @@
       margin-inline: auto;
     }
 
+    // 3 colonnes (span 4 sur 12) ; centrées s'il manque une image
     @include mq(lg) {
-      @include grid;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
+      gap: space(4xl);
       max-width: none;
+
+      > * {
+        flex: 0 0 calc((100% - 2 * #{space(4xl)}) / 3);
+        // il faut un élément (flex a min-width: auto par défaut),
+        // sinon elle ne descend pas sous sa largeur réelle.
+        min-width: 0;
+      }
     }
   }
 
@@ -29,14 +39,8 @@
     }
 
     @include mq(lg) {
-      grid-column: span 4;
       aspect-ratio: 373 / 409;
     }
   }
 
-  &__quote {
-    @include mq(lg) {
-      grid-column: span 4;
-    }
-  }
 }

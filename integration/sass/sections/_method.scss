@@ -25,17 +25,11 @@
     color: color(text-secondary);
   }
 
+  // 1 → 2 → 4 colonnes ; avec 3 étapes, elles restent centrées
   &__steps {
     @include reset-list;
+    @include centered-columns($md: 2, $lg: 4);
     row-gap: space(5xl);
     counter-reset: step;
-  }
-
-  &__step {
-    grid-column: span 4;
-
-    @include mq(lg) {
-      grid-column: span 3;
-    }
   }
 }
