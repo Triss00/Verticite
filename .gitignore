@@ -1,0 +1,16 @@
+# Système / éditeur
+.DS_Store
+.vscode/
+.idea/
+
+# Dépendances
+node_modules/
+
+# Ancien binaire Dart Sass (remplacé par le paquet npm `sass`)
+dart-sass/
+
+# Site Local (cœur WordPress, base de données, logs, configuration serveur).
+# Seuls le thème et le plugin sont versionnés : wordpress/themes et wordpress/plugins.
+wordpress/app/
+wordpress/conf/
+wordpress/logs/

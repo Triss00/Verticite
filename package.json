@@ -1,0 +1,20 @@
+{
+  "name": "verticite",
+  "private": true,
+  "description": "Verticité : maquette Figma, intégration HTML / Sass et thème WordPress sur mesure",
+  "scripts": {
+    "build": "npm run build:integration && npm run build:theme",
+    "build:integration": "sass integration/sass/main.scss integration/main.css",
+    "build:theme": "npm run build:theme:css && npm run build:theme:js",
+    "build:theme:css": "sass --load-path=integration/sass --style=compressed --no-source-map wordpress/themes/verticite/sass/main.scss wordpress/themes/verticite/assets/css/main.css",
+    "build:theme:js": "node -e \"fs.cpSync('integration/js', 'wordpress/themes/verticite/assets/js', { recursive: true })\"",
+    "watch:integration": "sass --watch integration/sass/main.scss integration/main.css",
+    "watch:theme": "sass --watch --load-path=integration/sass --style=compressed --no-source-map wordpress/themes/verticite/sass/main.scss wordpress/themes/verticite/assets/css/main.css",
+    "images": "node scripts/optimize-images.mjs",
+    "serve": "npx --yes serve integration"
+  },
+  "devDependencies": {
+    "sass": "1.106.1",
+    "sharp": "0.35.5"
+  }
+}
